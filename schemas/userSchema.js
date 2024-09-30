@@ -1,17 +1,19 @@
 const mongoose = require("mongoose");
-//const Category = require("../schemas/categorySchema")
-const monkeySchema = mongoose.Schema({
+
+const userSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    description: String,
-    image: String,
+    email: String,
+    passwordHash:{
+       type: String,
+       required: true
+    },
+    isAdmin: Boolean
+
 })
 
 const Monkey = mongoose.model("Monkey", monkeySchema)
 
 module.exports = Monkey;
-
-
-
