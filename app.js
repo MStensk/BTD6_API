@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const monkeysRouter = require("./routes/monkeys.js")
+const monkeysRouter = require("./routes/monkeys.js");
+const categoryRouter = require("./routes/categories.js");
+const userRouter = require("./routes/users.js")
 const app = express();
 require("dotenv/config");
 
@@ -15,7 +17,11 @@ app.use(morgan("tiny"));
 const connection = process.env.CONNECTION_STRING
 const api = process.env.API_URL
 
+//routes
 app.use(`${api}/monkeys`, monkeysRouter)
+app.use(`${api}/categories`, categoryRouter)
+app.use(`${api}/users`, userRouter)
+
 
 
 mongoose.connect(`${connection}`)
