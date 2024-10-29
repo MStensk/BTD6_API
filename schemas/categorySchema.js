@@ -9,6 +9,4 @@ const categorySchema = mongoose.Schema({
     image: String,
 })
 
-const Category = mongoose.model("Category", categorySchema)
-
-module.exports = Category;
+exports.Category = mongoose.model('Category', categorySchema)

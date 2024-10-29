@@ -2,12 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require('cors');
+require("dotenv/config");
+const app = express();
+
+//route declarations
 const monkeysRouter = require("./routes/monkeys.js");
 const categoryRouter = require("./routes/categories.js");
 const userRouter = require("./routes/users.js")
-const app = express();
-require("dotenv/config");
 
+app.use(cors());
+app.options('*', cors());
 app.use(bodyParser.json());
 app.use(morgan("tiny"));
 

@@ -5,13 +5,32 @@ const monkeySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    description: String,
-    image: String,
+    description: {
+        type: String,
+    },
+    richDescription: {
+        type: String,
+        default: ''
+    },
+    image: {
+        type: String,
+        default: ''
+    },
+    images: [{
+        type: String
+    }],
+    rating: String,
+    price: Number,
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true,
+    }
+
 })
 
-const Monkey = mongoose.model("Monkey", monkeySchema)
+exports.Monkey = mongoose.model('Monkey', monkeySchema)
 
-module.exports = Monkey;
 
 
 

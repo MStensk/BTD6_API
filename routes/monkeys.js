@@ -18,7 +18,7 @@ router.post(`/`, async (req, res) => {
         await newMonkey.save();
         res.status(201).send(newMonkey)
     } catch {
-        res.status(400).send(error)
+        res.status(404).send(error)
     }
 })
 
