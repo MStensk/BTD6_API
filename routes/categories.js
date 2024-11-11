@@ -12,9 +12,9 @@ router.get(`/`, async (req, res) => {
     }
 })
 
-router.get('/:id', async(req, res)=>{
+router.get('/:name', async(req, res)=>{
     try{
-        const category = await Category.findById(req.params.id);
+        const category = await Category.findOne({ name: req.params.name});
         res.status(201).send(category)
     }
     catch {

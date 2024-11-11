@@ -22,9 +22,8 @@ const monkeySchema = mongoose.Schema({
     rating: String,
     price: Number,
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true,
+        type: String,
+        required: true
     }
 
 })

@@ -25,7 +25,7 @@ router.get('/:id', async(req, res)=>{
 
 router.post(`/`, async (req, res) => {
     try {
-        const category = await Category.findById(req.body.category);
+        const category = await Category.findOne({name: req.body.category});
         if(!category) return res.status(400).send("invalid category")
         let monkey = new Monkey(req.body)
         monkey = await monkey.save()
